@@ -1,5 +1,12 @@
 package com.example.emcako.birthdayreminder.fragments.dummy;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+
+import com.example.emcako.birthdayreminder.R;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +19,6 @@ import java.util.Map;
  * TODO: Replace all uses of this class before publishing your app.
  */
 public class DummyContent {
-
     /**
      * An array of sample (dummy) items.
      */
@@ -25,20 +31,25 @@ public class DummyContent {
 
     private static final int COUNT = 25;
 
-    static {
+    public static void GenerateItems(Context context){
         // Add some sample items.
         for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
+            addItem(createDummyItem(context, i));
         }
     }
+
 
     private static void addItem(DummyItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+
+    private static DummyItem createDummyItem(Context context, int position) {
+        Drawable avatarDefault = (Drawable) context.getResources().getDrawable(R.drawable.icon_person);
+        return new DummyItem(String.valueOf(position), "Item " + position,
+                makeDetails(position),
+                avatarDefault);
     }
 
     private static String makeDetails(int position) {
@@ -54,14 +65,17 @@ public class DummyContent {
      * A dummy item representing a piece of content.
      */
     public static class DummyItem {
+
         public final String id;
         public final String content;
         public final String details;
+        public final Drawable avatar;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String content, String details, Drawable avatar) {
             this.id = id;
             this.content = content;
             this.details = details;
+            this.avatar = avatar;
         }
 
         @Override

@@ -13,6 +13,7 @@ import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.emcako.birthdayreminder.R;
@@ -69,6 +70,8 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        DummyContent dc = new DummyContent();
+        DummyContent.GenerateItems(this);
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
     }
 
@@ -93,6 +96,7 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).id);
             holder.mContentView.setText(mValues.get(position).content);
+            holder.mImgView.setImageDrawable(mValues.get(position).avatar);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -125,6 +129,7 @@ public class ItemListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
+            public final ImageView mImgView;
             public DummyContent.DummyItem mItem;
 
             public ViewHolder(View view) {
@@ -132,6 +137,7 @@ public class ItemListActivity extends AppCompatActivity {
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
                 mContentView = (TextView) view.findViewById(R.id.content);
+                mImgView = (ImageView) view.findViewById(R.id.img);
             }
 
             @Override
