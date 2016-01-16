@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import com.example.emcako.birthdayreminder.fragments.AddFriendFragment;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_mainActivity);
+
+
+
         MainPageAdapter adapter2 = new MainPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter2);
     }
