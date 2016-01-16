@@ -16,4 +16,5 @@ public class LocationFragemnt extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_locations, container, false);
         return rootView;
     }
+
 }

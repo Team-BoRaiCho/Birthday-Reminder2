@@ -3,6 +3,7 @@ package com.example.emcako.birthdayreminder;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -100,5 +101,10 @@ public class MainActivity extends AppCompatActivity {
     public void showDialog(View view) {
         android.app.DialogFragment newFragment = MyDialogFragment.newInstance();
         newFragment.show(getFragmentManager(), "dialog");
+    }
+
+    public void goToMaps(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
 }
