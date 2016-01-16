@@ -43,7 +43,7 @@ public class FriendsFragment extends Fragment {
     View tv;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_friednds, container, false);
 
@@ -56,8 +56,7 @@ public class FriendsFragment extends Fragment {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Slecteditem = itemname[+position];
-//                Toast.makeText(getActivity(), Slecteditem, Toast.LENGTH_SHORT).show();
+               // Slecteditem = itemname[+position];
                 DialogFragment newFragment = MyDialogFragment.newInstance();
                 newFragment.show(getFragmentManager(), "dialog");
 
