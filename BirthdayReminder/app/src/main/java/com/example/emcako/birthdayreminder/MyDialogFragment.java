@@ -1,7 +1,7 @@
 package com.example.emcako.birthdayreminder;
 
 import android.annotation.SuppressLint;
-import android.app.DialogFragment;
+import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public  class MyDialogFragment extends DialogFragment {
-    static MyDialogFragment newInstance() {
+    public static MyDialogFragment newInstance() {
         return new MyDialogFragment();
     }
 

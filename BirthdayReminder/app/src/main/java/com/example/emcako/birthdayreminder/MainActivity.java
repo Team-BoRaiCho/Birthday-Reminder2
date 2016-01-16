@@ -98,11 +98,6 @@ public class MainActivity extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    public void showDialog(View view) {
-        android.app.DialogFragment newFragment = MyDialogFragment.newInstance();
-        newFragment.show(getFragmentManager(), "dialog");
-    }
-
     public void goToMaps(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
