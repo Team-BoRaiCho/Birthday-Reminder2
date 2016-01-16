@@ -28,19 +28,6 @@
             <!-- return the laucher in the login Activity -->
 
         </activity>
-        <activity
-            android:name=".fragments.ItemListActivity"
-            android:label="@string/title_item_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".fragments.ItemDetailActivity"
-            android:label="@string/title_item_detail"
-            android:parentActivityName=".fragments.ItemListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.emcako.birthdayreminder.fragments.ItemListActivity" />
-        </activity>
     </application>
 
 </manifest>

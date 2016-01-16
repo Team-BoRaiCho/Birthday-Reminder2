@@ -31,8 +31,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.emcako.birthdayreminder.fragments.ItemListActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
