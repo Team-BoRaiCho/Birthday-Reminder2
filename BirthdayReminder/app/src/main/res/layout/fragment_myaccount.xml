@@ -3,8 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:contextClickable="false"
-    android:background="#dad2d5">
+    android:contextClickable="false">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -20,12 +19,9 @@
         android:layout_below="@+id/textView14" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/TextView"
         android:text="My Account"
         android:id="@+id/textView14"
-        android:textColor="#264fd8"
-        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView19"
         android:layout_toEndOf="@+id/textView19" />
 
@@ -62,16 +58,14 @@
         />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/btn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Take Piscture"
+        android:text="Take Picture"
         android:id="@+id/button_picture"
-        android:layout_alignTop="@+id/textView18"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/myColor"
-        android:onClick="GoToCamera"/>
+        android:onClick="GoToCamera"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/textView14"
+        android:layout_toEndOf="@+id/textView14" />
 
     <TextView
         android:layout_width="wrap_content"

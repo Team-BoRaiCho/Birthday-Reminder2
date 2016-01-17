@@ -15,10 +15,9 @@
         android:src="@drawable/android_300x300" />
 
     <Button
+        style="@style/btn"
         android:id="@+id/button_photo"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:onClick="showPicturePicker"
         android:text="Choose Photo" />
@@ -59,15 +58,14 @@
     </LinearLayout>
 
     <Button
+        style="@style/btn"
         android:id="@+id/button2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold"
         android:text="Add Friend"
-        android:onClick="AddFriendToDb"/>
+        android:onClick="AddFriendToDb"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
