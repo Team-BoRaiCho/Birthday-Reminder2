@@ -41,16 +41,16 @@ public  class MyDialogFragment extends DialogFragment {
         TextView giftsTv = (TextView) v.findViewById(R.id.tv_giftideas);
         giftsTv.setText(gifts);
 
-//        ImageView imageView = (ImageView) v.findViewById(R.id.iv_photo);
-//        if (imgUriString == null || imgUriString=="")
-//        {
-//            imageView.setImageResource(R.drawable.android_300x300);
-//        }
-//        else
-//        {
-//            Uri imgUri = Uri.parse(imgUriString);
-//            imageView.setImageURI(imgUri);
-//        }
+        ImageView imageView = (ImageView) v.findViewById(R.id.iv_photo);
+        if (imgUriString == null || imgUriString=="")
+        {
+            imageView.setImageResource(R.drawable.android_300x300);
+        }
+        else
+        {
+            Uri imgUri = Uri.parse(imgUriString);
+            imageView.setImageURI(imgUri);
+        }
 
         return v;
     }
