@@ -111,10 +111,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
 
     public void goToMaps(View view) {
         Intent intent = new Intent(this, MapsActivity.class);

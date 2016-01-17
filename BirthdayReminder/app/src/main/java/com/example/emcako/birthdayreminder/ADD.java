@@ -5,6 +5,7 @@ import com.google.android.gms.ads.AdView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,10 @@ public class ADD extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+    }
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new MainActivity.DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
 
