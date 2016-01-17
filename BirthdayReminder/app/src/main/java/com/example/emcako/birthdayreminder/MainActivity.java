@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -25,7 +26,6 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private static final int CAMERA_PIC_REQUEST = 200;
 
     @Override
@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_mainActivity);
-
-
 
         MainPageAdapter adapter2 = new MainPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter2);
@@ -54,9 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public class MainPageAdapter extends FragmentPagerAdapter {
-
 
         public MainPageAdapter(FragmentManager fm) {
             super(fm);
@@ -106,11 +102,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 textView.setText(day + "." + month + "." + year);
             }
-
-
         }
     }
-
 
     public void goToMaps(View view) {
         Intent intent = new Intent(this, MapsActivity.class);

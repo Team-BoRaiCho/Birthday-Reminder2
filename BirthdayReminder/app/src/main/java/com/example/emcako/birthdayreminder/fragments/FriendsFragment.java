@@ -1,6 +1,7 @@
 package com.example.emcako.birthdayreminder.fragments;
 
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class FriendsFragment extends Fragment {
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
+
 
         rootView = inflater.inflate(R.layout.fragment_friednds, container, false);
 
