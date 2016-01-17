@@ -18,3 +18,4 @@ public class MyAccountFragment extends Fragment {
         return rootView;
     }
 }
+
