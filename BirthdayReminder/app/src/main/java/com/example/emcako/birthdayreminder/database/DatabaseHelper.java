@@ -48,6 +48,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void deleteTable(SQLiteDatabase db) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDS);
+    }
+
     // Adding new contact
     public void addFriend(Friend friend) {
         SQLiteDatabase db = this.getWritableDatabase();

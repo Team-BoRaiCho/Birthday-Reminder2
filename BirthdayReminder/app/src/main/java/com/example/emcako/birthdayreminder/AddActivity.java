@@ -1,10 +1,14 @@
 package com.example.emcako.birthdayreminder;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+import com.example.emcako.birthdayreminder.database.DatabaseHelper;
+import com.example.emcako.birthdayreminder.database.Friend;
+import com.example.emcako.birthdayreminder.MainActivity.MainPageAdapter;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -43,8 +47,8 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
     }
+
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new AddActivity.DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
@@ -72,6 +76,29 @@ public class AddActivity extends AppCompatActivity {
 //                iv.setImageBitmap(bmImg);
             }
         }
+    }
+
+    public void AddFriendToDb(View view) {
+        EditText firstNameEt = (EditText) findViewById(R.id.et_firstname);
+        String fn = firstNameEt.getText().toString();
+
+        EditText lastNameEt = (EditText) findViewById(R.id.et_lastname);
+        String ln = lastNameEt.getText().toString();
+
+        String name = fn + " " + ln;
+
+        DatabaseHelper db = new DatabaseHelper(view.getContext());
+        Friend friendToAdd = new Friend(name);
+        db.addFriend(friendToAdd);
+
+        Toast.makeText(this, "Friend added!", Toast.LENGTH_SHORT).show();
+        goToFriendsList(view);
+    }
+
+    public void goToFriendsList(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        MainActivity.mainPageAdapter.getItem(2);
+        startActivity(intent);
     }
 
     public static class DatePickerFragment extends DialogFragment

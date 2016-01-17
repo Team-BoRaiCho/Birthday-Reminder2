@@ -1,11 +1,8 @@
 package com.example.emcako.birthdayreminder;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,33 +10,34 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.emcako.birthdayreminder.database.DatabaseHelper;
+import com.example.emcako.birthdayreminder.database.Friend;
 import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
 import com.example.emcako.birthdayreminder.fragments.LocationFragemnt;
 import com.example.emcako.birthdayreminder.fragments.MyAccountFragment;
 
-import java.util.Calendar;
-
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_PIC_REQUEST = 200;
+    public static MainPageAdapter mainPageAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //GenerateSomeFriends();
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_mainActivity);
 
-        MainPageAdapter adapter2 = new MainPageAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter2);
+        mainPageAdapter = new MainPageAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mainPageAdapter);
     }
 
     public void GoToCamera(View view) {
-        Intent takePhotoIntent = new Intent (MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePhotoIntent, CAMERA_PIC_REQUEST);
     }
 
@@ -81,8 +79,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
+
     public void GoToAddActivity(View view) {
-        Intent intent = new Intent(this,AddActivity.class);
+        Intent intent = new Intent(this, AddActivity.class);
         startActivity(intent);
+    }
+
+    public void GenerateSomeFriends() {
+        DatabaseHelper db = new DatabaseHelper(this);
+        Friend friend = new Friend("Ravi");
+        friend.setBirthday("20.05.1986");
+        db.addFriend(friend);
+        db.addFriend(new Friend("Srinivas"));
     }
 }

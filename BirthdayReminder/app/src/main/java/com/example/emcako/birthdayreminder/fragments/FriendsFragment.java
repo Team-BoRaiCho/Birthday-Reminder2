@@ -10,8 +10,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.emcako.birthdayreminder.CustomListAdapter;
+import com.example.emcako.birthdayreminder.FriendsListAdapter;
 import com.example.emcako.birthdayreminder.MyDialogFragment;
 import com.example.emcako.birthdayreminder.R;
+import com.example.emcako.birthdayreminder.database.DatabaseHelper;
+import com.example.emcako.birthdayreminder.database.Friend;
+
+import java.util.List;
 
 public class FriendsFragment extends Fragment {
 
@@ -49,7 +54,13 @@ public class FriendsFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_friednds, container, false);
 
-        CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
+
+        DatabaseHelper db = new DatabaseHelper(getContext());
+        List<Friend> friends =  db.getAllContacts();
+
+        //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
+
+        FriendsListAdapter adapter = new FriendsListAdapter(this.getActivity(), 0, friends);
         list = (ListView) rootView.findViewById(R.id.list);
         list.setAdapter(adapter);
 

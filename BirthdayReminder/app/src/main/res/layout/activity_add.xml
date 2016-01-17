@@ -9,7 +9,6 @@
         android:id="@+id/iv_add_photo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_above="@+id/et_firstname"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
@@ -68,6 +67,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:textStyle="bold"
-        android:text="Add Friend" />
+        android:text="Add Friend"
+        android:onClick="AddFriendToDb"/>
 
 </LinearLayout>
