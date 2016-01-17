@@ -82,6 +82,7 @@ public class AddActivity extends AppCompatActivity {
             }
             else {
                 imageUri = selectedImageUri.toString();
+                selectedImageUri = Uri.EMPTY;
             }
 
             Friend friendToAdd = new Friend(name);

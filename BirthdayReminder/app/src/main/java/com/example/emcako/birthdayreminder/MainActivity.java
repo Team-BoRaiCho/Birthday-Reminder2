@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //deleteDatabase(DatabaseHelper.DATABASE_NAME);
-        GenerateSomeFriends();
+        //GenerateSomeFriends();
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_mainActivity);
 
