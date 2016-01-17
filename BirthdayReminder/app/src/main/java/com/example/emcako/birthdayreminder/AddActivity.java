@@ -3,6 +3,8 @@ package com.example.emcako.birthdayreminder;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -18,12 +20,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.Calendar;
 
-public class ADD extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
     // Remove the below line after defining your own ad unit ID.
     private static final String TOAST_TEXT = "Test ads are being shown. "
             + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
@@ -41,7 +46,7 @@ public class ADD extends AppCompatActivity {
 
     }
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new MainActivity.DatePickerFragment();
+        DialogFragment newFragment = new AddActivity.DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
@@ -59,7 +64,7 @@ public class ADD extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == SELECT_PICTURE) {
                 Uri selectedImageUri = data.getData();
-                selectedImagePath = getPath(selectedImageUri);
+                //selectedImagePath = getPath(selectedImageUri);
 
                 ImageView iv = (ImageView) findViewById(R.id.iv_add_photo);
                 iv.setImageURI(selectedImageUri);
@@ -69,26 +74,30 @@ public class ADD extends AppCompatActivity {
         }
     }
 
-    /**
-     * helper to retrieve the path of an image URI
-     */
-    public String getPath(Uri uri) {
-        // just some safety built in
-        if( uri == null ) {
-            // TODO perform some logging or show user feedback
-            return null;
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current date as the default date in the picker
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+            return new DatePickerDialog(getActivity(), this, year, month, day);
         }
-        // try to retrieve the image from the media store first
-        // this will only work for images selected from gallery
-        String[] projection = { MediaStore.Images.Media.DATA };
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        if( cursor != null ){
-            int column_index = cursor
-                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // Do something with the date chosen by the user
+            month += 1;
+            EditText textView = (EditText) getActivity().findViewById(R.id.BirthText);
+            if (month < 11) {
+                textView.setText(day + "." + "0" + month + "." + year);
+            } else {
+                textView.setText(day + "." + month + "." + year);
+            }
         }
-        // this is our fallback here
-        return uri.getPath();
     }
 }

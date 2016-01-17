@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
 import com.example.emcako.birthdayreminder.fragments.LocationFragemnt;
@@ -79,39 +77,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-            month += 1;
-            EditText textView = (EditText) getActivity().findViewById(R.id.BirthText);
-            if (month < 11) {
-                textView.setText(day + "." + "0" + month + "." + year);
-            } else {
-                textView.setText(day + "." + month + "." + year);
-            }
-        }
-    }
-
     public void goToMaps(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
     public void GoToAddActivity(View view) {
-        Intent intent = new Intent(this,ADD.class);
+        Intent intent = new Intent(this,AddActivity.class);
         startActivity(intent);
     }
 }
