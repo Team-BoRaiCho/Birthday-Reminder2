@@ -2,7 +2,6 @@ package com.example.emcako.birthdayreminder;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
@@ -14,11 +13,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.emcako.birthdayreminder.fragments.AddFriendFragment;
+
 import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
 import com.example.emcako.birthdayreminder.fragments.LocationFragemnt;
 import com.example.emcako.birthdayreminder.fragments.MyAccountFragment;
@@ -72,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     return new FriendsFragment();
                 case 2:
-                    return new AddFriendFragment();
-                case 3:
                     return new LocationFragemnt();
                 default:
                     return null;
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
     }
 
@@ -122,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToMaps(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void GoToAddActivity(View view) {
+        Intent intent = new Intent(this,ADD.class);
         startActivity(intent);
     }
 }
