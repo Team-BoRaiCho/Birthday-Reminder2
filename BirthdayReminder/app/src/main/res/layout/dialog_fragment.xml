@@ -7,7 +7,7 @@
     android:background="@color/myColor"
     >
     <TextView
-        android:id="@+id/tv_dialigfragment"
+        android:id="@+id/tv_firstname_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="First Name : "
@@ -21,8 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Last Name : "
-        android:id="@+id/textView5"
-        android:layout_below="@+id/tv_dialigfragment"
+        android:id="@+id/tv_lastname_field"
+        android:layout_below="@+id/tv_firstname_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -30,35 +30,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Evgeni"
-        android:id="@+id/textView6"
-        android:layout_above="@+id/textView5"
-        android:layout_toRightOf="@+id/tv_dialigfragment"
-        android:layout_toEndOf="@+id/tv_dialigfragment" />
+        android:id="@+id/tv_firstname_value"
+        android:layout_above="@+id/tv_lastname_field"
+        android:layout_toRightOf="@+id/tv_firstname_field"
+        android:layout_toEndOf="@+id/tv_firstname_field" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Yordanov"
-        android:id="@+id/textView7"
-        android:layout_alignBottom="@+id/textView5"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        android:text="N/A"
+        android:id="@+id/tv_lastname_value"
+        android:layout_alignBottom="@+id/tv_lastname_field"
+        android:layout_toRightOf="@+id/tv_lastname_field"
+        android:layout_toEndOf="@+id/tv_lastname_field" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/iv_photo"
         android:src="@drawable/f"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/textView7" />
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/tv_lastname_value" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Date of Birth : "
         android:id="@+id/textView8"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/tv_lastname_field"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -86,8 +86,8 @@
         android:text="- Tedy Bear"
         android:id="@+id/textView11"
         android:layout_below="@+id/textView10"
-        android:layout_toRightOf="@+id/textView5"
-        android:layout_toEndOf="@+id/textView5" />
+        android:layout_toRightOf="@+id/tv_lastname_field"
+        android:layout_toEndOf="@+id/tv_lastname_field" />
 
     <TextView
         android:layout_width="wrap_content"

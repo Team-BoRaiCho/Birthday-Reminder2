@@ -15,7 +15,7 @@ import com.example.emcako.birthdayreminder.R;
 public class FriendsFragment extends Fragment {
 
     ListView list;
-    String[] itemname = {
+    public static String[] itemname = {
             "Safari",
             "Camera",
             "Global",
@@ -26,7 +26,7 @@ public class FriendsFragment extends Fragment {
             "Cold War"
     };
 
-    Integer[] imgid = {
+    public static Integer[] imgid = {
             R.drawable.c,
             R.drawable.d,
             R.drawable.e,
@@ -58,6 +58,11 @@ public class FriendsFragment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                // Slecteditem = itemname[+position];
                 DialogFragment newFragment = MyDialogFragment.newInstance();
+
+                Bundle b = new Bundle();
+                b.putInt("position", position);
+                newFragment.setArguments(b);
+
                 newFragment.show(getFragmentManager(), "dialog");
                 return false;
             }

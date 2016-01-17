@@ -20,7 +20,7 @@ public class LocationFragemnt extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_locations, container, false);
         WebView browser = (WebView) rootView.findViewById(R.id.webview);
         browser.setWebViewClient(new WebViewClient());
-        browser.loadUrl("https://www.google.bg/");
+        browser.loadUrl("https://www.google.bg/maps/search/giftshop/@42.673245,23.3290978,15z?hl=en");
         return rootView;
     }
 
