@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
             month += 1;
-            TextView textView = (TextView) getActivity().findViewById(R.id.BirthText);
+            EditText textView = (EditText) getActivity().findViewById(R.id.BirthText);
             if (month < 11) {
                 textView.setText(day + "." + "0" + month + "." + year);
             } else {

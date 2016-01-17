@@ -1,88 +1,73 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.emcako.birthdayreminder.ADD">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="ADD"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
-        android:layout_width="@dimen/item_width"
-        android:layout_height="@dimen/item_width"
         android:id="@+id/iv_add_photo"
-        android:src="@drawable/android_300x300"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/et_firstname"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_above="@+id/et_firstname" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_firstname"
-        android:layout_marginTop="102dp"
-        android:hint="First Name"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_lastname"
-        android:hint="Last Name"
-        android:layout_below="@+id/et_firstname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose Date of Birth"
-        android:id="@+id/button3"
-        android:onClick="showDatePickerDialog"
-        android:layout_below="@+id/et_lastname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="62dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose Photo"
-        android:id="@+id/button_photo"
-        android:onClick="showPicturePicker"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="62dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date of Birth"
-        android:id="@+id/BirthText"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Friend"
-        android:id="@+id/button2"
         android:layout_gravity="center_horizontal"
+        android:src="@drawable/android_300x300" />
+
+    <Button
+        android:id="@+id/button_photo"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="showPicturePicker"
+        android:text="Choose Photo" />
+
+    <EditText
+        android:id="@+id/et_firstname"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/et_lastname"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:hint="Last Name" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/BirthText"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Birthday (DD.MM.YYYY)"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="15dp"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/calendar_button"
+            android:layout_alignParentBottom="true"
+            android:onClick="showDatePickerDialog"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:text="Add Friend" />
 
-</RelativeLayout>
+</LinearLayout>
