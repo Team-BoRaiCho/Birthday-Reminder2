@@ -42,7 +42,7 @@
         android:layout_gravity="center_horizontal">
 
         <EditText
-            android:id="@+id/BirthText"
+            android:id="@+id/et_birthday"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Birthday (DD.MM.YYYY)"
@@ -57,10 +57,17 @@
             android:onClick="showDatePickerDialog"/>
     </LinearLayout>
 
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Some ideas for gift.."
+        android:layout_gravity="center_horizontal"/>
+    
     <Button
         style="@style/btn"
         android:id="@+id/button2"
         android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
