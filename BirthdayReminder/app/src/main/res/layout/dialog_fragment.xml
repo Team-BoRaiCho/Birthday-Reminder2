@@ -1,110 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minWidth="300dp"
     android:minHeight="300dp"
-    android:background="@color/myColor"
-    >
-    <TextView
-        android:id="@+id/tv_firstname_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name : "
-        android:layout_marginTop="99dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name : "
-        android:id="@+id/tv_lastname_field"
-        android:layout_below="@+id/tv_firstname_field"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Evgeni"
-        android:id="@+id/tv_firstname_value"
-        android:layout_above="@+id/tv_lastname_field"
-        android:layout_toRightOf="@+id/tv_firstname_field"
-        android:layout_toEndOf="@+id/tv_firstname_field" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N/A"
-        android:id="@+id/tv_lastname_value"
-        android:layout_alignBottom="@+id/tv_lastname_field"
-        android:layout_toRightOf="@+id/tv_lastname_field"
-        android:layout_toEndOf="@+id/tv_lastname_field" />
+    android:minWidth="300dp"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/iv_photo"
-        android:src="@drawable/f"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/tv_lastname_value" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/f" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date of Birth : "
-        android:id="@+id/textView8"
-        android:layout_below="@+id/tv_lastname_field"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <LinearLayout style="@style/dialog_layoutview">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="15.09.1995"
-        android:id="@+id/textView9"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_toRightOf="@+id/textView8"
-        android:layout_toEndOf="@+id/textView8" />
+        <TextView
+            android:id="@+id/tv_firstname_field"
+            style="@style/dialog_textview_field"
+            android:text="First Name : "></TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Previous Gifts"
-        android:id="@+id/textView10"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/tv_firstname_value"
+            style="@style/dialog_textview_value"
+            android:text="Default Name" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="- Tedy Bear"
-        android:id="@+id/textView11"
-        android:layout_below="@+id/textView10"
-        android:layout_toRightOf="@+id/tv_lastname_field"
-        android:layout_toEndOf="@+id/tv_lastname_field" />
+    <LinearLayout style="@style/dialog_layoutview">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="- Flowers"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/textView11"
-        android:layout_alignLeft="@+id/textView11"
-        android:layout_alignStart="@+id/textView11" />
+        <TextView
+            android:id="@+id/tv_lastname_field"
+            style="@style/dialog_textview_field"
+            android:text="Last Name : " />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="- Telefone"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView12"
-        android:layout_alignLeft="@+id/textView12"
-        android:layout_alignStart="@+id/textView12" />
+        <TextView
+            android:id="@+id/tv_lastname_value"
+            style="@style/dialog_textview_value"
+            android:text="N/A" />
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout style="@style/dialog_layoutview">
+
+        <TextView style="@style/dialog_textview_field"
+            android:text="Date of Birth : " />
+
+        <TextView
+            android:id="@+id/tv_birthday"
+            style="@style/dialog_textview_value"
+            android:text="01.01.1990" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/dialog_layoutview">
+
+        <TextView style="@style/dialog_textview_field"
+            android:text="Ideas for gift :" />
+
+        <TextView style="@style/dialog_textview_value"
+            android:id="@+id/tv_giftideas"
+            android:text=" Maybe some art?" />
+    </LinearLayout>
+</LinearLayout>

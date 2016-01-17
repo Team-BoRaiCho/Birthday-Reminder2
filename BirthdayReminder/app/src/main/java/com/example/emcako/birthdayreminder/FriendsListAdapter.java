@@ -45,7 +45,7 @@ public class FriendsListAdapter extends ArrayAdapter<Friend>
         extratxt.setText(friends.get(position).getBirthday());
 
         String imgUriString = friends.get(position).getImagePath();
-        if (imgUriString == null)
+        if (imgUriString == null || imgUriString=="")
         {
             imageView.setImageResource(R.drawable.android_300x300);
         }

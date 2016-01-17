@@ -43,10 +43,8 @@ public class FriendsFragment extends Fragment {
             R.drawable.k,
     };
 
-
-    String Slecteditem;
     View rootView;
-    View tv;
+    public static List<Friend> friends;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +54,7 @@ public class FriendsFragment extends Fragment {
 
 
         DatabaseHelper db = new DatabaseHelper(getContext());
-        List<Friend> friends =  db.getAllContacts();
+        friends =  db.getAllContacts();
 
         //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
 
@@ -69,7 +67,6 @@ public class FriendsFragment extends Fragment {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-               // Slecteditem = itemname[+position];
                 DialogFragment newFragment = MyDialogFragment.newInstance();
 
                 Bundle b = new Bundle();

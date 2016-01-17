@@ -1,6 +1,7 @@
 package com.example.emcako.birthdayreminder;
 
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,19 +23,35 @@ public  class MyDialogFragment extends DialogFragment {
         View v = inflater.inflate(R.layout.dialog_fragment, container, false);
 
         Bundle b = getArguments();
-        String firstName = FriendsFragment.itemname[b.getInt("position")];
-        Integer photoId =  FriendsFragment.imgid[b.getInt("position")];
+        String name = FriendsFragment.friends.get(b.getInt("position")).getName();
+        String birthday = FriendsFragment.friends.get(b.getInt("position")).getBirthday();
+        String gifts = FriendsFragment.friends.get(b.getInt("position")).getGifts();
+        String imgUriString = FriendsFragment.friends.get(b.getInt("position")).getImagePath();
 
-        TextView tv =(TextView) v.findViewById(R.id.tv_firstname_value);
-        ImageView iv = (ImageView) v.findViewById(R.id.iv_photo);
 
-        tv.setText(firstName);
-        iv.setImageResource(photoId);
+        //String firstName = FriendsFragment.itemname[b.getInt("position")];
+        //Integer photoId =  FriendsFragment.imgid[b.getInt("position")];
 
-        //tv.setText("This is an instance of MyDialogFragment");
+        TextView nameTv =(TextView) v.findViewById(R.id.tv_firstname_value);
+        nameTv.setText(name);
+
+        TextView birthdayTv =(TextView) v.findViewById(R.id.tv_birthday);
+        birthdayTv.setText(birthday);
+
+        TextView giftsTv = (TextView) v.findViewById(R.id.tv_giftideas);
+        giftsTv.setText(gifts);
+
+//        ImageView imageView = (ImageView) v.findViewById(R.id.iv_photo);
+//        if (imgUriString == null || imgUriString=="")
+//        {
+//            imageView.setImageResource(R.drawable.android_300x300);
+//        }
+//        else
+//        {
+//            Uri imgUri = Uri.parse(imgUriString);
+//            imageView.setImageURI(imgUri);
+//        }
+
         return v;
     }
-
-
-
 }
