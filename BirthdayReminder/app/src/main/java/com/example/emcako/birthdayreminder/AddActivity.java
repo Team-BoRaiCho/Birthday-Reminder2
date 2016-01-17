@@ -67,11 +67,15 @@ public class AddActivity extends AppCompatActivity {
             EditText birthdayEt = (EditText) findViewById(R.id.et_birthday);
             String bd = birthdayEt.getText().toString();
 
+            EditText giftIdeasEt = (EditText) findViewById(R.id.et_giftideas);
+            String giftIdeas = giftIdeasEt.getText().toString();
+
             String imageUri = selectedImageUri.toString();
 
             Friend friendToAdd = new Friend(name);
             friendToAdd.setBirthday(bd);
             friendToAdd.setImagePath(imageUri);
+            friendToAdd.setGifts(giftIdeas);
 
             DatabaseHelper db = new DatabaseHelper(view.getContext());
             db.addFriend(friendToAdd);

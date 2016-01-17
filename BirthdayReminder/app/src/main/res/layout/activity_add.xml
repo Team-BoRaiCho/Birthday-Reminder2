@@ -58,11 +58,12 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/et_giftideas"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="Some ideas for gift.."
         android:layout_gravity="center_horizontal"/>
-    
+
     <Button
         style="@style/btn"
         android:id="@+id/button2"
