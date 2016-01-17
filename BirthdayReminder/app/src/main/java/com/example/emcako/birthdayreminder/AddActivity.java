@@ -75,7 +75,14 @@ public class AddActivity extends AppCompatActivity {
             EditText giftIdeasEt = (EditText) findViewById(R.id.et_giftideas);
             String giftIdeas = giftIdeasEt.getText().toString();
 
-            String imageUri = selectedImageUri.toString();
+            String imageUri;
+            if (selectedImageUri == Uri.EMPTY)
+            {
+                imageUri = null;
+            }
+            else {
+                imageUri = selectedImageUri.toString();
+            }
 
             Friend friendToAdd = new Friend(name);
             friendToAdd.setBirthday(bd);

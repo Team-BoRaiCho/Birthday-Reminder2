@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //deleteDatabase(DatabaseHelper.DATABASE_NAME);
-        //GenerateSomeFriends();
+        GenerateSomeFriends();
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.vp_mainActivity);
 
@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void GenerateSomeFriends() {
         DatabaseHelper db = new DatabaseHelper(this);
-        Friend friend = new Friend("Ravi");
+        Friend friend = new Friend("John Doe 2");
         friend.setBirthday("20.05.1986");
+        friend.setImagePath("");
         db.addFriend(friend);
-        db.addFriend(new Friend("Srinivas"));
     }
 }

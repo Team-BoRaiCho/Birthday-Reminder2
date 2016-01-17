@@ -42,6 +42,7 @@ public  class MyDialogFragment extends DialogFragment {
         giftsTv.setText(gifts);
 
         ImageView imageView = (ImageView) v.findViewById(R.id.iv_photo);
+
         if (imgUriString == null || imgUriString=="")
         {
             imageView.setImageResource(R.drawable.android_300x300);
