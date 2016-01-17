@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,6 +16,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.emcako.birthdayreminder.fragments.AddFriendFragment;
 import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
@@ -24,6 +27,8 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private static final int CAMERA_PIC_REQUEST = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,19 @@ public class MainActivity extends AppCompatActivity {
 
         MainPageAdapter adapter2 = new MainPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter2);
+    }
+
+    public void GoToCamera(View view) {
+        Intent takePhotoIntent = new Intent (MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(takePhotoIntent, CAMERA_PIC_REQUEST);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_PIC_REQUEST) {
+            Bitmap image = (Bitmap) data.getExtras().get("data");
+            ImageView imageview = (ImageView) findViewById(R.id.imageView2);
+            imageview.setImageBitmap(image);
+        }
     }
 
 

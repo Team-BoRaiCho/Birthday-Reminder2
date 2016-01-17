@@ -1,15 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:contextClickable="false"
+    android:background="#dad2d5">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/empty"
+        android:maxWidth="120dp"
+        android:maxHeight="120dp"
+        android:layout_above="@+id/textView15"
+        android:layout_toRightOf="@+id/textView14"
+        android:layout_alignRight="@+id/button_picture"
+        android:layout_alignEnd="@+id/button_picture"
+        android:layout_below="@+id/textView14" />
 
     <TextView
-        android:layout_width="352dp"
-        android:layout_height="0dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="MY ACCOUNT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Account"
+        android:id="@+id/textView14"
+        android:textColor="#264fd8"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView19"
+        android:layout_toEndOf="@+id/textView19" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name : "
+        android:id="@+id/textView15"
+        android:textColor="#264fd8"
+        android:layout_above="@+id/textView16"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="56dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Of Birth : "
+        android:id="@+id/textView16"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name : "
+        android:id="@+id/textView17"
+        android:layout_alignBottom="@+id/button_picture"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#264fd8"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Piscture"
+        android:id="@+id/button_picture"
+        android:layout_alignTop="@+id/textView18"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/myColor"
+        android:onClick="GoToCamera"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Previous Gifts : "
         android:id="@+id/textView"
-        android:layout_weight="0.33"
-        android:layout_gravity="bottom" />
-</LinearLayout>
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Emiliya"
+        android:id="@+id/textView18"
+        android:textColor="#264fd8"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Petkanova"
+        android:id="@+id/textView19"
+        android:layout_alignTop="@+id/textView17"
+        android:layout_toRightOf="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13.05.1993"
+        android:id="@+id/textView20"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_toRightOf="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- Jaket"
+        android:id="@+id/textView21"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- Ring"
+        android:id="@+id/textView22"
+        android:layout_below="@+id/textView21"
+        android:layout_alignLeft="@+id/textView21"
+        android:layout_alignStart="@+id/textView21"
+        android:textColor="#264fd8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="- Car"
+        android:id="@+id/textView23"
+        android:layout_below="@+id/textView22"
+        android:layout_alignLeft="@+id/textView22"
+        android:layout_alignStart="@+id/textView22"
+        android:textColor="#264fd8" />
+</RelativeLayout>

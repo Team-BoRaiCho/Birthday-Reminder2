@@ -59,7 +59,6 @@ public class FriendsFragment extends Fragment {
                // Slecteditem = itemname[+position];
                 DialogFragment newFragment = MyDialogFragment.newInstance();
                 newFragment.show(getFragmentManager(), "dialog");
-
                 return false;
             }
         });
