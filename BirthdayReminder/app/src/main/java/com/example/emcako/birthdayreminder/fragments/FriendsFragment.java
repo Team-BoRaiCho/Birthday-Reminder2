@@ -1,5 +1,6 @@
 package com.example.emcako.birthdayreminder.fragments;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.emcako.birthdayreminder.CustomListAdapter;
 import com.example.emcako.birthdayreminder.FriendsListAdapter;
+import com.example.emcako.birthdayreminder.MainActivity;
 import com.example.emcako.birthdayreminder.MyDialogFragment;
 import com.example.emcako.birthdayreminder.R;
 import com.example.emcako.birthdayreminder.database.DatabaseHelper;
@@ -42,6 +44,7 @@ public class FriendsFragment extends Fragment {
             R.drawable.j,
             R.drawable.k,
     };
+    MediaPlayer player;
 
     View rootView;
     public static List<Friend> friends;
@@ -68,6 +71,9 @@ public class FriendsFragment extends Fragment {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 DialogFragment newFragment = MyDialogFragment.newInstance();
+
+                player=MediaPlayer.create(getActivity(),R.raw.desk_bell);
+                player.start();
 
                 Bundle b = new Bundle();
                 b.putInt("position", position);

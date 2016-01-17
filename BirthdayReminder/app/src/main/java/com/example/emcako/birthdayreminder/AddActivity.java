@@ -6,6 +6,7 @@ import com.example.emcako.birthdayreminder.database.Friend;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -53,6 +54,7 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    MediaPlayer player;
     public void AddFriendToDb(View view) {
         EditText firstNameEt = (EditText) findViewById(R.id.et_firstname);
         String fn = firstNameEt.getText().toString();
@@ -60,7 +62,10 @@ public class AddActivity extends AppCompatActivity {
         String ln = lastNameEt.getText().toString();
 
         if (isValidName(fn) || isValidName(ln)) {
+            player=MediaPlayer.create(AddActivity.this,R.raw.invalid_input);
+            player.start();
             Toast.makeText(this, "Names cannot be less than 3 symbols!", Toast.LENGTH_SHORT).show();
+
         } else {
             String name = fn + " " + ln;
 
