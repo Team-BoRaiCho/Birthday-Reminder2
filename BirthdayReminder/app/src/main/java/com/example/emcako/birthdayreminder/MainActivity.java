@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -131,5 +132,10 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(day + "." + month + "." + year);
             }
         }
+    }
+    public void GoToMessages(View view) {
+        Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+        sendIntent.setData(Uri.parse("sms:"));
+        startActivity(sendIntent);
     }
 }
