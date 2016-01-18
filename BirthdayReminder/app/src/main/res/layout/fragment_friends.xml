@@ -7,6 +7,7 @@
     style="@style/TextView"
     android:id="@+id/tv_friends"
     android:text="FRIENDS"/>
+
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"

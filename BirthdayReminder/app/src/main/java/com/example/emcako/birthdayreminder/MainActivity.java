@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.example.emcako.birthdayreminder.database.DatabaseHelper;
 import com.example.emcako.birthdayreminder.database.Friend;
 import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
-import com.example.emcako.birthdayreminder.fragments.LocationFragemnt;
+import com.example.emcako.birthdayreminder.fragments.LocationFragment;
 import com.example.emcako.birthdayreminder.fragments.MyAccountFragment;
 
 import java.util.Calendar;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     return new FriendsFragment();
                 case 2:
-                    return new LocationFragemnt();
+                    return new LocationFragment();
                 default:
                     return null;
             }

@@ -13,9 +13,6 @@ import com.example.emcako.birthdayreminder.database.Friend;
 
 import java.util.List;
 
-/**
- * Created by eLa on 17-Jan-16.
- */
 public class FriendsListAdapter extends ArrayAdapter<Friend>
 {
     private final Activity activity;

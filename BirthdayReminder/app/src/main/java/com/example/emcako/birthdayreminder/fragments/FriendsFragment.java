@@ -2,7 +2,6 @@ package com.example.emcako.birthdayreminder.fragments;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.example.emcako.birthdayreminder.CustomListAdapter;
+import android.widget.TextView;
+
 import com.example.emcako.birthdayreminder.FriendsListAdapter;
-import com.example.emcako.birthdayreminder.MainActivity;
 import com.example.emcako.birthdayreminder.MyDialogFragment;
 import com.example.emcako.birthdayreminder.R;
 import com.example.emcako.birthdayreminder.database.DatabaseHelper;
@@ -53,36 +52,46 @@ public class FriendsFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
 
-        rootView = inflater.inflate(R.layout.fragment_friednds, container, false);
+        rootView = inflater.inflate(R.layout.fragment_friends, container, false);
 
 
         DatabaseHelper db = new DatabaseHelper(getContext());
+        int count = db.getContactsCount();
         friends =  db.getAllContacts();
 
-        //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
+        if(count > 0)
+        {
+            //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
 
-        FriendsListAdapter adapter = new FriendsListAdapter(this.getActivity(), 0, friends);
-        list = (ListView) rootView.findViewById(R.id.list);
-        list.setAdapter(adapter);
+            FriendsListAdapter adapter = new FriendsListAdapter(this.getActivity(), 0, friends);
+            list = (ListView) rootView.findViewById(R.id.list);
+            list.setAdapter(adapter);
 
 
-        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                DialogFragment newFragment = MyDialogFragment.newInstance();
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    DialogFragment newFragment = MyDialogFragment.newInstance();
 
-                player=MediaPlayer.create(getActivity(),R.raw.desk_bell);
-                player.start();
+                    player=MediaPlayer.create(getActivity(),R.raw.desk_bell);
+                    player.start();
 
-                Bundle b = new Bundle();
-                b.putInt("position", position);
-                newFragment.setArguments(b);
+                    Bundle b = new Bundle();
+                    b.putInt("position", position);
+                    newFragment.setArguments(b);
 
-                newFragment.show(getFragmentManager(), "dialog");
-                return false;
-            }
-        });
+                    newFragment.show(getFragmentManager(), "dialog");
+                    return false;
+                }
+            });
+        }
+        else
+        {
+            TextView tv = (TextView) rootView.findViewById(R.id.tv_friends);
+            tv.setText("You still haven't added friends.. :(");
+        }
+
         return rootView;
     }
 

@@ -13,14 +13,16 @@ import android.webkit.WebViewClient;
 
 import com.example.emcako.birthdayreminder.R;
 
-public class LocationFragemnt extends Fragment {
+public class LocationFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_locations, container, false);
-        WebView browser = (WebView) rootView.findViewById(R.id.webview);
-        browser.setWebViewClient(new WebViewClient());
-        browser.loadUrl("https://www.google.bg/maps/search/giftshop/@42.673245,23.3290978,15z?hl=en");
+
+//        WebView browser = (WebView) rootView.findViewById(R.id.webview);
+//        browser.setWebViewClient(new WebViewClient());
+//        browser.loadUrl("https://www.google.bg/maps/search/giftshop/@42.673245,23.3290978,15z?hl=en");
+
         return rootView;
     }
 
