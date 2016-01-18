@@ -108,8 +108,8 @@ public class FriendsFragment extends Fragment {
 
     private void sendNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
-        builder.setContentTitle("asdasdas");
-        builder.setContentText("kkkokokokoko");
+        builder.setContentTitle("Birtdhays");
+        builder.setContentText("No birthdays today!");
         builder.setSmallIcon(R.drawable.ic_stat_notification);
 
         Notification notificatonObject = builder.build();
