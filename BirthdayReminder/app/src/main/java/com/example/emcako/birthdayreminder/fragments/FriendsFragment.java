@@ -47,6 +47,7 @@ public class FriendsFragment extends Fragment {
 
     View rootView;
     public static List<Friend> friends;
+    public static FriendsListAdapter adapter;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -57,13 +58,12 @@ public class FriendsFragment extends Fragment {
 
         DatabaseHelper db = new DatabaseHelper(getContext());
         int count = db.getContactsCount();
-        friends =  db.getAllContacts();
+        friends = db.getAllContacts();
 
-        if(count > 0)
-        {
+        if (count > 0) {
             //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
 
-            FriendsListAdapter adapter = new FriendsListAdapter(this.getActivity(), 0, friends);
+            adapter = new FriendsListAdapter(this.getActivity(), 0, friends);
             list = (ListView) rootView.findViewById(R.id.list);
             list.setAdapter(adapter);
 
@@ -74,7 +74,7 @@ public class FriendsFragment extends Fragment {
                 public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                     DialogFragment newFragment = MyDialogFragment.newInstance();
 
-                    player=MediaPlayer.create(getActivity(),R.raw.desk_bell);
+                    player = MediaPlayer.create(getActivity(), R.raw.desk_bell);
                     player.start();
 
                     Bundle b = new Bundle();
@@ -85,9 +85,8 @@ public class FriendsFragment extends Fragment {
                     return false;
                 }
             });
-        }
-        else
-        {
+
+        } else {
             TextView tv = (TextView) rootView.findViewById(R.id.tv_friends);
             tv.setText("You still haven't added friends.. :(");
         }

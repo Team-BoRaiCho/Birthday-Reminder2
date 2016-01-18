@@ -24,6 +24,7 @@ import com.example.emcako.birthdayreminder.fragments.FriendsFragment;
 import com.example.emcako.birthdayreminder.fragments.LocationFragment;
 import com.example.emcako.birthdayreminder.fragments.MyAccountFragment;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
