@@ -39,26 +39,26 @@ public class FriendsListAdapter extends ArrayAdapter<Friend>
 
         final int currentPosition = position;
 
-        ImageButton btn= (ImageButton) rowView.findViewById(R.id.btn_delete);
-        btn.setOnClickListener(new View.OnClickListener() {
+//        ImageButton btn= (ImageButton) rowView.findViewById(R.id.btn_delete);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                // TODO Auto-generated method stub
+//
+//                Friend friendToDelete = (Friend) friends.get(currentPosition);
+//                String name = friendToDelete.getName();
+//
+//                DatabaseHelper db = new DatabaseHelper(getContext());
+//                db.deleteFriend(friendToDelete);
+//                friends.remove(position);
+//
+//                FriendsFragment.adapter.notifyDataSetChanged();
+//
+//                Toast.makeText(getContext(), "You just deleted " + name + " !", Toast.LENGTH_SHORT).show();
 
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                Friend friendToDelete = (Friend) friends.get(currentPosition);
-                String name = friendToDelete.getName();
-
-                DatabaseHelper db = new DatabaseHelper(getContext());
-                db.deleteFriend(friendToDelete);
-                friends.remove(position);
-
-                FriendsFragment.adapter.notifyDataSetChanged();
-
-                Toast.makeText(getContext(), "You just deleted " + name + " !", Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//            }
+//        });
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.photo_icon);
