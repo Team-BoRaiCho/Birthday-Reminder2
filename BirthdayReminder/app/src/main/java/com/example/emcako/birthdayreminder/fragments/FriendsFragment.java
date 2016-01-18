@@ -1,9 +1,13 @@
 package com.example.emcako.birthdayreminder.fragments;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +64,14 @@ public class FriendsFragment extends Fragment {
         int count = db.getContactsCount();
         friends = db.getAllContacts();
 
+        TextView b = (TextView) rootView.findViewById(R.id.tv_friends);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendNotification();
+            }
+        });
+
         if (count > 0) {
             //CustomListAdapter adapter = new CustomListAdapter(this.getActivity(), itemname, imgid);
 
@@ -92,6 +104,18 @@ public class FriendsFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    private void sendNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
+        builder.setContentTitle("asdasdas");
+        builder.setContentText("kkkokokokoko");
+        builder.setSmallIcon(R.drawable.ic_stat_notification);
+
+        Notification notificatonObject = builder.build();
+
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(123, notificatonObject);
     }
 
 
